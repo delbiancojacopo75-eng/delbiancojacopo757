@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>CMF-1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/forma-apple.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- scroll morbido -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="js/forma-apple.js"></script>
+</head>
+<body>
+  <!-- il canvas 3D fisso dietro alla pagina. Le sezioni "solide" (nere piene) ci passano sopra -->
+  <div class="stage" id="stage" aria-hidden="true">
+    <p class="stage-loading" id="stage-loading">Caricamento</p>
+  </div>
+  <div class="tags" id="tags" aria-hidden="true">
+    <div class="tag" data-parte="LENTE">Lente<small>Vetro ottico · n 1,523</small></div>
+    <div class="tag" data-parte="STRUTTURA">Frontale<small>Plastica lucidata</small></div>
+    <div class="tag" data-parte="STANGHETTA SX">Stanghetta sinistra<small>Perno Ø 2,6 mm</small></div>
+    <div class="tag" data-parte="STANGHETTA DX">Stanghetta destra<small>Perno Ø 2,6 mm</small></div>
+  </div>
+
+  <!-- barra del prodotto, fissa in alto -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top">CMF-1</a>
+      <nav aria-label="Sezioni">
+        <a href="#punti-chiave">Panoramica</a>
+        <a href="#fronte">Design</a>
+        <a href="#esploso">Esploso</a>
+        <a href="#specifiche">Specifiche</a>
+        <a class="nav-cta" href="#prova">Indossali</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 1. HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-fade">
+        <div class="hero-copy">
+          <h1 id="hero-title">CMF-1</h1>
+          <p class="hero-sub">Una linea sola. Quattro parti. Zero viti in vista.</p>
+          <p class="hero-links">
+            <a class="btn" href="#prova">Indossali</a>
+            <a class="link" href="#esploso">Guarda l’esploso ›</a>
+          </p>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#punti-chiave" aria-label="Scorri"><span></span></a>
+    </section>
+
+    <!-- 2. I PUNTI CHIAVE: carosello orizzontale. Le immagini le scatta la pagina dal modello 3D -->
+    <section class="solido galleria" id="punti-chiave" aria-labelledby="galleria-title">
+      <h2 class="titolo-sezione reveal" id="galleria-title">Prima di tutto,<br>i punti chiave.</h2>
+      <div class="galleria-traccia" id="galleria-traccia" tabindex="0" aria-label="Punti chiave, scorri in orizzontale">
+        <article class="card">
+          <div class="card-testo"><h3>Una sola linea.</h3><p>Il frontale corre per 158 mm senza interruzioni, da tempia a tempia.</p></div>
+          <div class="card-vista" data-vista="linea" role="img" aria-label="CMF-1 vista di fronte, montatura bianco ghiaccio"></div>
+        </article>
+        <article class="card">
+          <div class="card-testo"><h3>Cerniere a perno.</h3><p>Perni da 2,6 mm e nessuna vite in vista. Le stanghette si chiudono una sopra l’altra.</p></div>
+          <div class="card-vista" data-vista="cerniere" role="img" aria-label="CMF-1 di lato con le stanghette che si chiudono, finitura ambra"></div>
+        </article>
+        <article class="card">
+          <div class="card-testo"><h3>Lenti in vetro ottico.</h3><p>Indice di rifrazione 1,523 e sei tinte tra cui scegliere.</p></div>
+          <div class="card-vista" data-vista="lenti" role="img" aria-label="CMF-1 con lenti blu oceano"></div>
+        </article>
+        <article class="card">
+          <div class="card-testo"><h3>Quattro finiture.</h3><p>Plastica lucidata a specchio: bianco ghiaccio, nero, blu notte e ambra.</p></div>
+          <div class="card-vista" data-vista="finiture" role="img" aria-label="CMF-1 visto dall’alto, finitura blu notte"></div>
+        </article>
+        <article class="card">
+          <div class="card-testo"><h3>Quattro parti. Niente di più.</h3><p>Lente, frontale e due stanghette, progettati per incastrarsi alla perfezione.</p></div>
+          <div class="card-vista" data-vista="esploso" role="img" aria-label="CMF-1 in vista esplosa"></div>
+        </article>
+        <article class="card">
+          <div class="card-testo"><h3>Provali prima di sceglierli.</h3><p>La prova virtuale li mette sul tuo viso, direttamente nel browser.</p></div>
+          <div class="card-vista" data-vista="prova" role="img" aria-label="CMF-1 di fronte, lenti rosa"></div>
+        </article>
+      </div>
+      <div class="galleria-comandi">
+        <div class="galleria-punti" id="galleria-punti" role="tablist" aria-label="Scegli una card"></div>
+        <div class="galleria-frecce">
+          <button type="button" id="galleria-prima" aria-label="Card precedente">‹</button>
+          <button type="button" id="galleria-dopo" aria-label="Card successiva">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DESIGN: l'occhiale 3D si muove tra le row -->
+    <section class="row" id="fronte" aria-labelledby="fronte-title">
+      <div class="row-copy">
+        <p class="eyebrow reveal">Design</p>
+        <h2 id="fronte-title" class="reveal">Non passa<br><span>inosservato.</span></h2>
+        <p class="reveal">Il frontale scende morbido verso i lati e segue la curva delle sopracciglia. Visto di fronte, è <strong>un solo gesto</strong>.</p>
+      </div>
+    </section>
+
+    <section class="row row-right" id="cerniere" aria-labelledby="cerniere-title">
+      <div class="row-copy">
+        <p class="eyebrow reveal">Cerniere</p>
+        <h2 id="cerniere-title" class="reveal">Si chiudono.<br><span>Senza viti.</span></h2>
+        <p class="reveal">Scorri: prima si chiude la stanghetta sinistra, poi la destra le si appoggia sopra. A 88° e 78°, <strong>senza mai toccarsi</strong>.</p>
+      </div>
+    </section>
+
+    <section class="row" id="colore" aria-labelledby="colore-title">
+      <div class="row-copy">
+        <p class="eyebrow reveal">Colori</p>
+        <h2 id="colore-title" class="reveal">La tua combinazione.<br><span>Montatura e lenti.</span></h2>
+        <p class="swatch-label reveal">Montatura</p>
+        <div class="swatches reveal" role="radiogroup" aria-label="Colore della montatura" data-target="montatura">
+          <button type="button" class="swatch selected" role="radio" aria-checked="true" data-colore="#e9e8e3" data-nome="Bianco ghiaccio" style="--c:#e9e8e3"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" data-colore="#141416" data-nome="Nero lucido" style="--c:#2a2a2e"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" data-colore="#1f3160" data-nome="Blu notte" style="--c:#1f3160"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" data-colore="#9a4a1a" data-nome="Ambra" style="--c:#9a4a1a"></button>
+          <span class="swatch-name">Bianco ghiaccio</span>
+        </div>
+        <p class="swatch-label reveal">Lenti</p>
+        <div class="swatches reveal" role="radiogroup" aria-label="Colore delle lenti" data-target="lente">
+          <button type="button" class="swatch selected" role="radio" aria-checked="true" data-colore="#9aa6a8" data-nome="Grigio fumé" style="--c:#59636a"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" data-colore="#7f9a6c" data-nome="Verde G-15" style="--c:#4c5f3e"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" data-colore="#b68350" data-nome="Marrone" style="--c:#7a4f2a"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" data-colore="#5f8fd0" data-nome="Blu oceano" style="--c:#2f5fa0"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" data-colore="#f0a0b4" data-nome="Rosa" style="--c:#d77f96"></button>
+          <button type="button" class="swatch" role="radio" aria-checked="false" data-colore="#ffffff" data-nome="Trasparente" style="--c:linear-gradient(135deg,#f5f5f7 0%,#c9ccd1 100%)"></button>
+          <span class="swatch-name">Grigio fumé</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. TUTTI I NUMERI -->
+    <section class="solido numeri" aria-labelledby="numeri-title">
+      <h2 class="titolo-sezione reveal" id="numeri-title">Ha tutti i numeri.</h2>
+      <ul class="numeri-griglia">
+        <li class="reveal"><span class="numero"><b data-valore="158">0</b> mm</span><span class="numero-testo">di larghezza, da tempia a tempia</span></li>
+        <li class="reveal"><span class="numero"><b data-valore="68">0</b> mm</span><span class="numero-testo">di altezza del frontale</span></li>
+        <li class="reveal"><span class="numero"><b data-valore="155">0</b> mm</span><span class="numero-testo">di profondità, stanghette comprese</span></li>
+        <li class="reveal"><span class="numero">Ø <b data-valore="2.6" data-decimali="1">0</b> mm</span><span class="numero-testo">il perno di ogni cerniera</span></li>
+        <li class="reveal"><span class="numero">n <b data-valore="1.523" data-decimali="3">0</b></span><span class="numero-testo">indice di rifrazione delle lenti</span></li>
+        <li class="reveal"><span class="numero"><b data-valore="24">0</b></span><span class="numero-testo">combinazioni di montatura e lenti</span></li>
+      </ul>
+    </section>
+
+    <!-- 5. ESPLOSO (pinnato) -->
+    <section class="esploso" id="esploso" aria-labelledby="esploso-title">
+      <div class="esploso-head">
+        <p class="eyebrow">Costruiti pezzo per pezzo</p>
+        <h2 id="esploso-title">Ogni parte.<br><span>Al suo posto.</span></h2>
+      </div>
+      <p class="esploso-caption" id="esploso-caption">Continua a scorrere</p>
+    </section>
+
+    <!-- 6. PROVALI -->
+    <section class="prova" id="prova" aria-labelledby="prova-title">
+      <div class="prova-copy">
+        <p class="eyebrow reveal">Prova virtuale</p>
+        <h2 id="prova-title" class="reveal">Ora tocca a te.</h2>
+        <p class="reveal">Accendi la fotocamera: il viso viene riconosciuto direttamente nel browser e gli occhiali ti seguono. Il video non lascia mai il tuo dispositivo.</p>
+        <button class="btn btn-grande reveal" id="bottone-prova" type="button" disabled>Indossali</button>
+      </div>
+    </section>
+
+    <!-- 7. SPECIFICHE -->
+    <section class="solido specifiche" id="specifiche" aria-labelledby="specifiche-title">
+      <h2 class="titolo-sezione reveal" id="specifiche-title">Specifiche tecniche</h2>
+      <dl class="spec">
+        <div class="spec-riga reveal"><dt>Dimensioni</dt><dd><p>Larghezza 158 mm</p><p>Altezza 68 mm</p><p>Profondità 155 mm</p></dd></div>
+        <div class="spec-riga reveal"><dt>Materiali</dt><dd><p>Frontale e stanghette in plastica lucidata</p><p>Lenti in vetro ottico, n 1,523</p></dd></div>
+        <div class="spec-riga reveal"><dt>Cerniere</dt><dd><p>Perno Ø 2,6 mm, senza viti in vista</p><p>Chiusura a 88° (sinistra) e 78° (destra)</p></dd></div>
+        <div class="spec-riga reveal"><dt>Finiture montatura</dt><dd><p>Bianco ghiaccio, Nero lucido, Blu notte, Ambra</p></dd></div>
+        <div class="spec-riga reveal"><dt>Lenti</dt><dd><p>Grigio fumé, Verde G-15, Marrone, Blu oceano, Rosa, Trasparente</p></dd></div>
+        <div class="spec-riga reveal"><dt>Componenti</dt><dd><p>4: lente, frontale, stanghetta sinistra, stanghetta destra</p></dd></div>
+        <div class="spec-riga reveal"><dt>Prova virtuale</dt><dd><p>Riconoscimento del viso nel browser</p><p>Nessun video inviato in rete</p></dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="solido footer">
+    <span>CMF-1 · Un progetto di design · 2026</span>
+    <a href="#top">Torna su ↑</a>
+  </footer>
+
+  <dialog class="try" id="finestra-prova">
+    <div class="try-head">
+      <div>
+        <p class="eyebrow">CMF-1</p>
+        <p class="try-status" id="prova-stato">Avvio della prova virtuale…</p>
+      </div>
+      <button class="try-close" id="prova-chiudi" type="button" aria-label="Chiudi">×</button>
+    </div>
+    <div class="try-screen" id="prova-schermo">
+      <video id="prova-video" playsinline muted></video>
+      <img id="prova-foto" alt="La foto scattata con gli occhiali">
+    </div>
+    <div class="try-controls">
+      <button class="btn" id="prova-scatta" type="button" disabled>Scatta foto</button>
+      <a class="btn" id="prova-scarica" download hidden>Scarica la foto</a>
+      <button class="btn btn-ghost" id="prova-rifai" type="button" hidden>Riprova</button>
+    </div>
+  </dialog>
+</body>
+</html>
